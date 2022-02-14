@@ -122,15 +122,15 @@
         function deleteEmployee(){
             $sqlQuery = "DELETE FROM " . $this->db_table . " WHERE id = ?";
             $stmt = $this->conn->prepare($sqlQuery);
-
+        
             $this->id=htmlspecialchars(strip_tags($this->id));
-
+        
             $stmt->bindParam(1, $this->id);
-
+        
             if($stmt->execute()){
                 return true;
-             }
-             return false;
+            }
+            return false;
         }
     }
 
