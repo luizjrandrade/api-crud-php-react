@@ -7,7 +7,7 @@
     $database = new Database();
     $db = $database->getConnection();
     $items = new Employee($db);
-    $stmt = $items->getEmployess();
+    $stmt = $items->getEmployees();
     $itemCount = $stmt->rowCount();
 
     echo json_encode($itemCount);

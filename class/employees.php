@@ -87,14 +87,14 @@
             $sqlQuery = "UPDATE
                         ". $this->db_table ."
                     SET
-                        name = :name,
-                        email = :email,
-                        age = :age,
-                        designation = :designation,
+                        name = :name, 
+                        email = :email, 
+                        age = :age, 
+                        designation = :designation, 
                         created = :created
-                    WHERE
+                    WHERE 
                         id = :id";
-            
+        
             $stmt = $this->conn->prepare($sqlQuery);
 
             $this->name=htmlspecialchars(strip_tags($this->name));
