@@ -24,7 +24,7 @@ export const Actions = () => {
     }, []);
 
     //insert employees
-    const insertEmployees = (newEmp) => {
+    const insertEmployee = (newEmp) => {
         fetch("http://localhost:80/apiphp/api/create.php", {
             method: "POST",
             headers: {
@@ -80,7 +80,7 @@ export const Actions = () => {
     }
 
     //Updating
-    const updateEmployeer = (employeeData) => {
+    const updateEmployee = (employeeData) => {
         fetch("http://localhost:80/apiphp/api/update.php", {
             method: "POST",
             headers: {
@@ -116,7 +116,7 @@ export const Actions = () => {
     };
 
     //Deleting a user
-    const deleteEmployeer = (theID) => {
+    const deleteEmployee = (theID) => {
       //filter
       let emplooyeerDeleted = employees.filter((employee) => {
           return employee.id !== theID;
@@ -150,9 +150,9 @@ export const Actions = () => {
         employees,
         editMode,
         cancelEdit,
-        updateEmployeer,
-        insertEmployees,
-        deleteEmployeer,
+        updateEmployee,
+        insertEmployee,
+        deleteEmployee,
         empLength,
     };
 
