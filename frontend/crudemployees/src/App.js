@@ -1,23 +1,46 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useEffect, useState} from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import {Modal, ModalBody, ModalFooter, ModalHeader} from 'reactstrap';
+import axios from 'axios';
+
 
 function App() {
+  const baseUrl="http://localhost:80/apiphp/api/read.php";
+  const [data, setData]=useState([]);
+
+  const empGet=async()=>{
+    await axios.get(baseUrl)
+    .then(function(response){
+      console.log(response.data);
+      setData(response.data);
+    })
+  }
+
+  useEffect(()=>{
+    empGet();
+  },[])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <table className="table table-striped">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Age</th>
+            <th>Designation</th>
+            <th>Created</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+       
+        <tbody>
+          
+        </tbody>
+         
+      </table>
+     
     </div>
   );
 }
